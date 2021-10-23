@@ -1,0 +1,43 @@
+{
+  "private": true,
+  "name": "@puppeteer-cloud/client",
+  "description": "",
+  "version": "0.0.0",
+  "engines": {
+    "yarn": "Please use npm"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "npm run clean && tsc -p tsconfig.build.json",
+    "clean": "rimraf dist"
+  },
+  "dependencies": {
+    "axios": "^0.23.0",
+    "puppeteer": "^10.4.0"
+  },
+  "devDependencies": {
+    "rimraf": "^3.0.2",
+    "ts-jest": "^26.4.3",
+    "typescript": "^4.4.2"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "testRegex": ".test.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "coverageDirectory": "./coverage",
+    "testEnvironment": "node"
+  }
+}

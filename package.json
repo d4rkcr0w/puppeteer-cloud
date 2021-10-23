@@ -1,0 +1,59 @@
+{
+  "private": true,
+  "name": "@puppeteer-cloud/workspace",
+  "engines": {
+    "npm": "^7.0.0",
+    "yarn": "Please use npm"
+  },
+  "scripts": {
+    "bootstrap": "lerna bootstrap",
+    "build": "lerna run build",
+    "clean": "lerna clean",
+    "commit": "git-cz",
+    "lint": "eslint packages/*/src --fix",
+    "test": "lerna run test",
+    "publish": "lerna publish --yes",
+    "dev": "cd packages/example && npm run dev",
+    "nest-boost": "cd packages/example && npm run nest-boost"
+  },
+  "devDependencies": {
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^7.19.0",
+    "eslint-config-superboost": "^1.2.9",
+    "husky": "^4.3.8",
+    "lerna": "^4.0.0",
+    "lint-staged": "^10.5.0",
+    "prettier": "^2.1.1",
+    "typescript": "^4.4.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/*.{js,ts}": "eslint --fix",
+    "**/*.{js,ts,md,json}": "prettier --write"
+  },
+  "eslintConfig": {
+    "env": {
+      "node": true,
+      "jest": true
+    },
+    "root": true,
+    "extends": [
+      "superboost/typescript"
+    ],
+    "parserOptions": {
+      "project": "./tsconfig.json"
+    },
+    "rules": {
+      "import/no-extraneous-dependencies": "off"
+    }
+  }
+}
